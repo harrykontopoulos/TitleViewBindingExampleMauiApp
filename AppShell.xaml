@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="TitleViewBindingExampleMauiApp.AppShell"
+    x:Name="shell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:TitleViewBindingExampleMauiApp"
+    xmlns:views="clr-namespace:TitleViewBindingExampleMauiApp.ViewModels">
+
+    <Shell.BindingContext>
+        <views:AppShellViewModel />
+    </Shell.BindingContext>
+
+    <Shell.TitleView>
+        <Label
+            TextColor="White"
+            HorizontalTextAlignment="Center"
+            FontSize="Title"
+            Margin="0,0,70,0"
+            VerticalOptions="Center" 
+            Text="{Binding Title}"></Label>
+    </Shell.TitleView>
+
+    <FlyoutItem Title="Main">
+        <ShellContent
+            x:Name="home"
+            Title="Main"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="MainPage" />
+    </FlyoutItem>
+    <FlyoutItem Title="Secondary">
+        <ShellContent
+            x:Name="second"
+            Title="Second"
+            ContentTemplate="{DataTemplate local:SecondPage}"
+            Route="SecondPage" />
+    </FlyoutItem>
+
+    
+
+</Shell>
